@@ -71,22 +71,19 @@ const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <div
       id="emailPopup"
-      className="popup fixed bottom-0 w-full h-auto md:w-2/3 mx-auto"
+      className="popup fixed bottom-0 max-w-[1000px] w-full h-auto mx-auto"
     >
-      <div className="popup-content bg-white px-6 pt-3 pb-6 h-70vh rounded-t-2xl shadow-md">
+      <div className="popup-content  bg-white px-6 pt-3 pb-6 h-70vh rounded-t-2xl shadow-md">
         <div className="flex items-center justify-between pb-2">
           <div className="text-lg font-semibold">
             {`Contact ${recipientName.split(" ")[0]}`}
           </div>
-          <span
-            className="close text-gray-600 cursor-pointer text-3xl"
-            onClick={closePopup}
-          >
+          <span className="close cursor-pointer text-3xl" onClick={closePopup}>
             &times;
           </span>
         </div>
 
-        <hr className="w-full border-t border-gray-400 absolute left-0" />
+        <hr className="w-full border-t border-gray-600 absolute left-0" />
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           <Form
             id="emailForm"
