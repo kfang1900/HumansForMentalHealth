@@ -20,19 +20,29 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const isDesktop = useMediaQuery({ maxWidth: "768px" })
-  const [isSticky, setIsSticky] = useState(true)
-  const [prevScrollPos, setPrevScrollPos] = useState(0)
+  const [scrollPos, setScrollPos] = useState(0)
+  const [isSticky, setSticky] = useState(true)
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY
-      setIsSticky(currentScrollPos < prevScrollPos || currentScrollPos === 0)
-      setPrevScrollPos(currentScrollPos)
+
+      // Check if scrolling down and not at the top
+      if (currentScrollPos > scrollPos && currentScrollPos > 0) {
+        setSticky(false)
+      } else {
+        setSticky(true)
+      }
+
+      setScrollPos(currentScrollPos)
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [prevScrollPos])
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [scrollPos])
 
   return (
     <html lang="en">
@@ -41,7 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <header>
           <nav
-            className={`flex bg-white items-center justify-between transition-all duration-300 px-6 py-4 md:px-12 ${
+            className={`flex bg-white items-center justify-between px-6 py-4 md:px-12 ${
               isSticky ? "fixed top-0 w-full" : "relative"
             }`}
           >

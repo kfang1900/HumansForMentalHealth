@@ -83,7 +83,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           </span>
         </div>
 
-        <hr className="w-full border-t border-gray-600 absolute left-0" />
+        <hr className="w-full border-t border-gray-400 absolute left-0" />
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           <Form
             id="emailForm"
@@ -94,7 +94,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-800"
               >
-                Name:
+                Name
               </label>
               <Field
                 type="text"
@@ -108,7 +108,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-800"
               >
-                Email:
+                Email
               </label>
               <Field
                 type="email"
@@ -122,7 +122,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 htmlFor="message"
                 className="block text-sm font-medium text-gray-800"
               >
-                Message:
+                Message
               </label>
               <Field
                 as="textarea"
