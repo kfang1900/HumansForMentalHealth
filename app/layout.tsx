@@ -6,6 +6,7 @@ import "./globals.css"
 import { Inter } from "next/font/google"
 import { Analytics } from "@/components/analytics"
 import { useMediaQuery } from "react-responsive"
+import { useState, useEffect } from "react"
 const inter = Inter({ subsets: ["latin"] })
 
 // export const metadata = {
@@ -19,13 +20,30 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const isDesktop = useMediaQuery({ maxWidth: "768px" })
+  const [isSticky, setSticky] = useState(false)
+
+  const handleScroll = () => {
+    setSticky(window.scrollY > 0)
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
   return (
     <html lang="en">
       <body
         className={`antialiased min-h-screen bg-white text-slate-900 ${inter.className}`}
       >
         <header>
-          <nav className="flex items-center justify-between px-6 py-4 md:px-12">
+          <nav
+            className={`flex items-center justify-between px-6 py-4 md:px-12 ${
+              isSticky ? "fixed top-0 w-full" : ""
+            }`}
+          >
             <Link href="/">
               <Image src="/logo.svg" width={120} height={120} alt="Your Logo" />
             </Link>
