@@ -129,7 +129,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 as="textarea"
                 id="message"
                 name="message"
-                rows={14}
+                rows={8}
                 className="mt-1 p-2 w-full border rounded"
               />
             </div>
