@@ -90,7 +90,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             )}
           </nav>
         </header>
-        <div className="max-w-full min-h-screen bg-skin">
+        <div
+          className={`max-w-full min-h-screen bg-skin ${
+            isSticky ? "mt-20" : ""
+          }`}
+        >
           <main>{children}</main>
         </div>
         <Analytics />
