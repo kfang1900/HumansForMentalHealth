@@ -6,6 +6,7 @@ import ContactForm from "@/components/contact"
 import { useMediaQuery } from "react-responsive"
 import { useState } from "react"
 import Image from "next/image"
+import RoundedTextBlocks from "@/components/RoundedTextBlocks"
 
 import { Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
@@ -98,6 +99,15 @@ export default function StoryPage({ params }: StoryProps) {
               <Image src="/mail.svg" width={32} height={32} alt="email icon" />
             </button>
           </div>
+
+          <h4 className="text-sm font-medium">Treatment</h4>
+          {story.treatment && <RoundedTextBlocks textList={story.treatment} />}
+
+          <h4 className="text-sm font-medium">Medication</h4>
+          {story.medication && (
+            <RoundedTextBlocks textList={story.medication} />
+          )}
+
           <div className="prose">
             <Mdx code={story.body.code} />
           </div>

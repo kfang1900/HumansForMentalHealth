@@ -92,7 +92,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-800"
               >
                 Name:
               </label>
@@ -106,7 +106,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-800"
               >
                 Email:
               </label>
@@ -120,7 +120,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-800"
               >
                 Message:
               </label>

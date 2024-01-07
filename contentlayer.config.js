@@ -67,6 +67,15 @@ export const Story = defineDocumentType(() => ({
     picture: {
       type: "string",
     },
+    treatment: {
+      type: 'list',
+      of: { type: 'string' },
+    },
+    medication: {
+      type: 'list',
+      of: { type: 'string' },
+    },
+   
   },
   computedFields,
 }))
