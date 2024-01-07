@@ -69,8 +69,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
   }
 
   return (
-    <div id="emailPopup" className="popup bottom-0 w-full">
-      <div className="popup-content bg-white p-8 rounded-lg shadow-md">
+    <div
+      id="emailPopup"
+      className="popup fixed bottom-0 w-full h-auto md:w-2/3 mx-auto"
+    >
+      <div className="popup-content bg-white p-6 h-70vh rounded-t-3xl shadow-md">
         <div className="flex items-center justify-between">
           <div className="text-lg font-semibold">
             {`Contact ${recipientName.split(" ")[0]}`}
@@ -126,7 +129,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 as="textarea"
                 id="message"
                 name="message"
-                rows={5}
+                rows={14}
                 className="mt-1 p-2 w-full border rounded"
               />
             </div>

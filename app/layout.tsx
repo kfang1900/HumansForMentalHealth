@@ -25,7 +25,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`antialiased min-h-screen bg-white text-slate-900 ${inter.className}`}
       >
         <header>
-          <nav className="flex items-center justify-between px-6 py-6 md:px-12">
+          <nav className="flex items-center justify-between px-6 py-4 md:px-12">
             <Link href="/">
               <Image src="/logo.svg" width={120} height={120} alt="Your Logo" />
             </Link>
