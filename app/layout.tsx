@@ -27,7 +27,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <header>
           <nav className="flex items-center justify-between px-6 py-6 md:px-12">
             <Link href="/">
-              <Image src="logo.svg" width={120} height={120} alt="Your Logo" />
+              <Image src="/logo.svg" width={120} height={120} alt="Your Logo" />
             </Link>
             {!isDesktop ? (
               <div className="flex justify-center align-items space-x-12">
@@ -51,7 +51,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </Link>
                 <button className="">
                   <Image
-                    src="burger.svg"
+                    src="/burger.svg"
                     width={40}
                     height={40}
                     alt="Dropdown Icon"
@@ -61,7 +61,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             )}
           </nav>
         </header>
-        <div className="max-w-full py-10 min-h-screen bg-skin">
+        <div className="max-w-full min-h-screen bg-skin">
           <main>{children}</main>
         </div>
         <Analytics />

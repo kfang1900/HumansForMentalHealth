@@ -14,7 +14,12 @@ export default function Home() {
         <article key={story._id} className="mb-8 ml-6">
           <div>
             {story.picture && (
-              <Image src="/UT.jpeg" width={100} height={100} alt={story.name} />
+              <Image
+                src={story.picture}
+                width={100}
+                height={100}
+                alt={story.name}
+              />
             )}
           </div>
           <div className="font-bold text-2xl">

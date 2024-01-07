@@ -57,6 +57,10 @@ export const Story = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    email: {
+      type: "string",
+      required: true,
+    },
     illness: {
       type: "string",
     },
