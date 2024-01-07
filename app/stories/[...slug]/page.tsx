@@ -86,27 +86,31 @@ export default function StoryPage({ params }: StoryProps) {
         )}
         <div className="px-4">
           <div className="flex justify-between items-center">
-            <div className="py-4">
-              <h1 className=" text-2xl font-bold">{story.name}</h1>
+            <div className="py-6 space-y-2">
+              <h1 className=" text-4xl font-bold">{story.name}</h1>
               {story.illness && (
-                <p className="text-lg mt-0 text-slate-600">{story.illness}</p>
+                <p className="text-2xl mt-0 text-slate-600">{story.illness}</p>
               )}
             </div>
             <button
               onClick={openEmailForm}
               className="ng-blue-500 text-black px-4 py-2 rounded"
             >
-              <Image src="/mail.svg" width={32} height={32} alt="email icon" />
+              <Image src="/mail.svg" width={40} height={40} alt="email icon" />
             </button>
           </div>
-
-          <h4 className="text-sm font-medium">Treatment</h4>
-          {story.treatment && <RoundedTextBlocks textList={story.treatment} />}
-
-          <h4 className="text-sm font-medium">Medication</h4>
-          {story.medication && (
-            <RoundedTextBlocks textList={story.medication} />
-          )}
+          <div className="pb-2">
+            <h4 className="font-medium">Treatment</h4>
+            {story.treatment && (
+              <RoundedTextBlocks textList={story.treatment} />
+            )}
+          </div>
+          <div className="pb-2">
+            <h4 className="font-medium">Medication</h4>
+            {story.medication && (
+              <RoundedTextBlocks textList={story.medication} />
+            )}
+          </div>
 
           <div className="prose">
             <Mdx code={story.body.code} />
