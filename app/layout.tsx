@@ -20,18 +20,19 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   const isDesktop = useMediaQuery({ maxWidth: "768px" })
-  const [isSticky, setSticky] = useState(false)
-
-  const handleScroll = () => {
-    setSticky(window.scrollY > 0)
-  }
+  const [isSticky, setIsSticky] = useState(true)
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY
+      setIsSticky(currentScrollPos < prevScrollPos || currentScrollPos === 0)
+      setPrevScrollPos(currentScrollPos)
     }
-  }, [])
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [prevScrollPos])
 
   return (
     <html lang="en">
@@ -40,8 +41,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <header>
           <nav
-            className={`flex items-center justify-between px-6 py-4 md:px-12 ${
-              isSticky ? "fixed top-0 w-full" : ""
+            className={`flex bg-white items-center justify-between transition-all duration-300 px-6 py-4 md:px-12 ${
+              isSticky ? "fixed top-0 w-full" : "relative"
             }`}
           >
             <Link href="/">
