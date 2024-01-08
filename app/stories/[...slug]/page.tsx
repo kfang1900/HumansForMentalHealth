@@ -85,7 +85,7 @@ export default function StoryPage({ params }: StoryProps) {
           </div>
         )}
         <div className="px-4 max-w-[690px] mx-auto">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center pt-2">
             <div className="py-6 space-y-2">
               <h1 className=" text-4xl font-bold">{story.name}</h1>
               {story.illness && (
@@ -112,7 +112,7 @@ export default function StoryPage({ params }: StoryProps) {
             )}
           </div>
 
-          <div className="prose pt-4 pb-12 text-black w-full">
+          <div className="prose prose-lg pt-3 pb-12 text-black font-sans w-full">
             <Mdx code={story.body.code} />
           </div>
         </div>

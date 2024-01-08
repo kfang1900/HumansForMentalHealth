@@ -8,6 +8,10 @@ module.exports = {
   darkMode: ["class"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-georgia)"],
+        mono: ["var(--font-inter)"]
+      },
       colors: {
         'skin': '#fff9f2'
       },

@@ -83,7 +83,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           </span>
         </div>
 
-        <hr className="w-full border-t border-gray-400 absolute left-0" />
+        <hr className="w-full border-t-2 border-gray-100 absolute left-0" />
         <Formik initialValues={initialValues} onSubmit={handleSubmit}>
           <Form
             id="emailForm"

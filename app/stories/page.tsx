@@ -12,12 +12,12 @@ export default function Home() {
     <div className="">
       {allStories.map((story) => (
         <article key={story._id} className="mb-8 ml-6">
-          <div>
+          <div className="mx-auto">
             {story.picture && (
               <Image
                 src={story.picture}
-                width={100}
-                height={100}
+                width={1000}
+                height={1000}
                 alt={story.name}
               />
             )}
