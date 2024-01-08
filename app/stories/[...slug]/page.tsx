@@ -87,9 +87,9 @@ export default function StoryPage({ params }: StoryProps) {
         <div className="px-4 max-w-[690px] mx-auto">
           <div className="flex justify-between items-center pt-2">
             <div className="py-6 space-y-2">
-              <h1 className=" text-4xl font-bold">{story.name}</h1>
+              <h1 className="text-4xl font-bold">{story.name}</h1>
               {story.illness && (
-                <p className="text-2xl mt-0 text-slate-600">{story.illness}</p>
+                <p className="text-2xl text-slate-600">{story.illness}</p>
               )}
             </div>
             <button
@@ -100,15 +100,19 @@ export default function StoryPage({ params }: StoryProps) {
             </button>
           </div>
           <div className="pb-2">
-            <h4 className="font-medium">Treatment</h4>
             {story.treatment && (
-              <RoundedTextBlocks textList={story.treatment} />
+              <>
+                <h4 className="font-medium">Treatment</h4>
+                <RoundedTextBlocks textList={story.treatment} />
+              </>
             )}
           </div>
           <div className="pb-2">
-            <h4 className="font-medium">Medication</h4>
             {story.medication && (
-              <RoundedTextBlocks textList={story.medication} />
+              <>
+                <h4 className="font-medium">Medication</h4>
+                <RoundedTextBlocks textList={story.medication} />
+              </>
             )}
           </div>
 

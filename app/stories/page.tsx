@@ -1,40 +1,54 @@
+"use client"
+
 import { allStories } from "@/.contentlayer/generated"
 import Link from "next/link"
 import Image from "next/image"
 import { Mdx } from "@/components/mdx-components"
+import Masonry from "react-masonry-css"
 
-allStories.map((value) => {
-  console.log(value.picture)
-})
+const breakpointColumnsObj = {
+  default: 4,
+  1200: 3,
+  800: 2,
+  400: 1,
+}
 
 export default function Home() {
   return (
-    <div className="">
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className="flex flex-wrap justify-evenly max-w-full px-4 pt-3"
+    >
       {allStories.map((story) => (
-        <article key={story._id} className="mb-8 ml-6">
-          <div className="mx-auto">
+        <article key={story._id} className="max-w-[350px]">
+          <Link href={story.slug}>
             {story.picture && (
-              <Image
-                src={story.picture}
-                width={1000}
-                height={1000}
-                alt={story.name}
-              />
+              <div className="max-w-[500px] p-4">
+                <Image
+                  src={story.picture}
+                  className="object-cover"
+                  width={1000}
+                  height={1000}
+                  alt={story.name}
+                />
+              </div>
             )}
-          </div>
-          <div className="font-bold text-2xl">
-            <Link href={story.slug}>
-              <h2>{story.name}</h2>
-            </Link>
-          </div>
-          <div className="text-sm text-gray-500 font-medium">
-            {story.illness && <p>{story.illness}</p>}
-          </div>
-          <div className="prose">
-            <Mdx code={story.body.code} />
-          </div>
+            <div className="px-4 mx-auto">
+              <div className="flex justify-between items-center">
+                <div className="pb-4 space-y-1">
+                  <h1 className="text-3xl font-bold">{story.name}</h1>
+                  {story.illness && (
+                    <p className="text-xl text-slate-600">{story.illness}</p>
+                  )}
+                </div>
+              </div>
+              <p className="prose text-black line-clamp-6 font-sans mb-4 -mt-1">
+                <Mdx code={story.body.code} />
+              </p>
+            </div>
+          </Link>
         </article>
       ))}
-    </div>
+    </Masonry>
   )
 }

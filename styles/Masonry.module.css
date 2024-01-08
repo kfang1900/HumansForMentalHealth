@@ -1,0 +1,36 @@
+.masonry {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto -18px;
+}
+.column {
+  padding: 0 18px;
+  background-clip: padding-box;
+}
+.masonry-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto -18px;
+}
+.store-column {
+  padding: 0 18px;
+  background-clip: padding-box;
+}
+
+@media not screen and (min-width: 768px) {
+  .masonry {
+    margin: auto -2px;
+    width: auto;
+  }
+  .column {
+    padding: 0 2px;
+  }
+  .masonry-column {
+    margin: auto -6px;
+  }
+  .store-column {
+    padding: 0 6px;
+  }
+}
