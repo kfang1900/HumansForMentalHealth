@@ -74,13 +74,43 @@ export const Story = defineDocumentType(() => ({
     medication: {
       type: 'list',
       of: { type: 'string' },
+    }, 
+    discrimination: {
+      type: 'string',
+    }, 
+    institution: {
+      type: "string",
+    }, 
+    class: {
+      type: "string",
+    }, 
+    responsibleIndividuals:{
+      type: "string",
+    }
+  },
+  computedFields,
+}))
+
+export const Justice = defineDocumentType(() => ({
+  name: "Justice",
+  filePathPattern: `justice/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    isPerson: {
+      type: "boolean",
+      required: true,
     },
-   
+    name: {
+      type: "string",
+    },
+    school: {
+      type: "string",
+    },
   },
   computedFields,
 }))
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Post, Page, Story],
+  documentTypes: [Post, Page, Story, Justice],
 })

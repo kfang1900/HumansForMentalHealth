@@ -3,11 +3,9 @@
 import { notFound } from "next/navigation"
 import { allStories } from "contentlayer/generated"
 import ContactForm from "@/components/contact"
-import { useMediaQuery } from "react-responsive"
 import { useState } from "react"
 import Image from "next/image"
 import RoundedTextBlocks from "@/components/RoundedTextBlocks"
-
 import { Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
 
@@ -115,7 +113,25 @@ export default function StoryPage({ params }: StoryProps) {
               </>
             )}
           </div>
-
+          {story.discrimination && (
+            <div className="border-4 text-lg border-yale rounded-lg p-6 my-4 bg-skin">
+              <div className="mb-4">
+                <span className="font-semibold">Discrimination:</span>{" "}
+                {story.discrimination}
+              </div>
+              <div className="mb-4">
+                <span className="font-semibold">Insitution:</span>{" "}
+                {story.institution}
+              </div>
+              <div className="mb-4">
+                <span className="font-semibold">Class:</span> {story.class}
+              </div>
+              <div>
+                <span className="font-semibold">Responsible Individuals:</span>{" "}
+                {story.responsibleIndividuals}
+              </div>
+            </div>
+          )}
           <div className="prose prose-lg pt-3 pb-12 text-black font-sans w-full">
             <Mdx code={story.body.code} />
           </div>

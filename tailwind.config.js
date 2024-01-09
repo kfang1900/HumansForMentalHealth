@@ -13,7 +13,8 @@ module.exports = {
         mono: ["var(--font-inter)"]
       },
       colors: {
-        'skin': '#fff9f2'
+        'skin': '#fff9f2',
+        'yale': '#0f4d92',
       },
     },
   },

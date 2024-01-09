@@ -20,7 +20,7 @@ export default function Home() {
       className="flex flex-wrap justify-evenly max-w-full px-4 pt-3"
     >
       {allStories.map((story) => (
-        <article key={story._id} className="max-w-[350px]">
+        <article key={story._id} className="max-w-[800px]">
           <Link href={story.slug}>
             {story.picture && (
               <div className="max-w-[500px] p-4">
