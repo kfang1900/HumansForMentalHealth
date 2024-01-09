@@ -82,7 +82,7 @@ export default function StoryPage({ params }: StoryProps) {
             />
           </div>
         )}
-        <div className="px-4 max-w-[690px] mx-auto">
+        <div className="px-5 max-w-[690px] mx-auto">
           <div className="flex justify-between items-center pt-2">
             <div className="py-6 space-y-2">
               <h1 className="text-4xl font-bold">{story.name}</h1>
@@ -114,7 +114,7 @@ export default function StoryPage({ params }: StoryProps) {
             )}
           </div>
           {story.discrimination && (
-            <div className="border-4 text-lg border-yale rounded-lg p-6 my-4 bg-skin">
+            <div className="border-4 text-lg border-yale rounded-lg p-5 my-4 bg-skin">
               <div className="mb-4">
                 <span className="font-semibold">Discrimination:</span>{" "}
                 {story.discrimination}
