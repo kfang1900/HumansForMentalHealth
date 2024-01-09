@@ -9,6 +9,9 @@ import RoundedTextBlocks from "@/components/RoundedTextBlocks"
 import { Metadata } from "next"
 import { Mdx } from "@/components/mdx-components"
 
+// prevent Google/Bing from indexing Kevin's page
+import Head from "next/head"
+
 interface StoryProps {
   params: {
     slug: string[]
@@ -70,6 +73,11 @@ export default function StoryPage({ params }: StoryProps) {
 
   return (
     <div className="max-w-screen-lg mx-auto">
+      <Head>
+        {story.name === "Kevin Fang" && (
+          <meta name="robots" content="noindex, nofollow" />
+        )}
+      </Head>
       <article className="">
         {story.picture && (
           <div className="w-screen">
@@ -82,7 +90,7 @@ export default function StoryPage({ params }: StoryProps) {
             />
           </div>
         )}
-        <div className="px-5 max-w-[690px] mx-auto">
+        <div className="px-5 max-w-[660px] mx-auto">
           <div className="flex justify-between items-center pt-2">
             <div className="py-6 space-y-2">
               <h1 className="text-4xl font-bold">{story.name}</h1>
@@ -132,7 +140,7 @@ export default function StoryPage({ params }: StoryProps) {
               </div>
             </div>
           )}
-          <div className="prose prose-lg pt-3 pb-12 text-black font-sans w-full">
+          <div className="prose prose-lg pt-3 pb-12 font-medium md:text-xl text-black font-sans w-full">
             <Mdx code={story.body.code} />
           </div>
         </div>
