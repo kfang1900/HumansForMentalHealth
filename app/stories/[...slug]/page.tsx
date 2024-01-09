@@ -91,24 +91,29 @@ export default function StoryPage({ params }: StoryProps) {
           </div>
         )}
         <div className="px-5 max-w-[660px] mx-auto">
-          <div className="flex justify-between items-center pt-2">
-            <div className="py-6 space-y-2">
-              <h1 className="text-4xl font-bold">{story.name}</h1>
+          <div className="flex justify-between items-center pt-2 md:my-4">
+            <div className="py-6 space-y-2 md:space-y-4">
+              <h1 className="text-5xl md:text-7xl font-bold">{story.name}</h1>
               {story.illness && (
-                <p className="text-2xl text-slate-600">{story.illness}</p>
+                <p className="text-3xl md:text-4xl text-slate-600">
+                  {story.illness}
+                </p>
               )}
             </div>
-            <button
-              onClick={openEmailForm}
-              className="ng-blue-500 text-black px-4 py-2 rounded"
-            >
-              <Image src="/mail.svg" width={40} height={40} alt="email icon" />
+            <button onClick={openEmailForm} className="text-black rounded">
+              <Image
+                src="/mail.svg"
+                width={52}
+                height={52}
+                className="md:w-20 md:h-20"
+                alt="email icon"
+              />
             </button>
           </div>
-          <div className="pb-2">
+          <div className="pb-2 md:pb-4">
             {story.treatment && (
               <>
-                <h4 className="font-medium">Treatment</h4>
+                <h4 className="font-medium md:text-2xl md:mb-1">Treatment</h4>
                 <RoundedTextBlocks textList={story.treatment} />
               </>
             )}
@@ -116,22 +121,22 @@ export default function StoryPage({ params }: StoryProps) {
           <div className="pb-2">
             {story.medication && (
               <>
-                <h4 className="font-medium">Medication</h4>
+                <h4 className="font-medium md:text-2xl md:mb-1">Medication</h4>
                 <RoundedTextBlocks textList={story.medication} />
               </>
             )}
           </div>
           {story.discrimination && (
-            <div className="border-4 text-lg border-yale rounded-lg p-5 my-4 bg-skin">
-              <div className="mb-4">
+            <div className="border-4 text-lg border-yale rounded-lg p-5 my-6 md:my-10 md:p-8 bg-skin md:text-xl">
+              <div className="mb-4 md:mb-6">
                 <span className="font-semibold">Discrimination:</span>{" "}
                 {story.discrimination}
               </div>
-              <div className="mb-4">
+              <div className="mb-4 md:mb-6">
                 <span className="font-semibold">Insitution:</span>{" "}
                 {story.institution}
               </div>
-              <div className="mb-4">
+              <div className="mb-4 md:mb-6">
                 <span className="font-semibold">Class:</span> {story.class}
               </div>
               <div>
@@ -140,7 +145,7 @@ export default function StoryPage({ params }: StoryProps) {
               </div>
             </div>
           )}
-          <div className="prose prose-lg pt-3 pb-12 font-medium md:text-xl text-black font-sans w-full">
+          <div className="prose prose-lg pt-3 pb-12 font-medium prose-p:leading-[1.6rem] md:prose-p:leading-[1.82rem] text-lg md:text-xl text-black font-sans w-full">
             <Mdx code={story.body.code} />
           </div>
         </div>

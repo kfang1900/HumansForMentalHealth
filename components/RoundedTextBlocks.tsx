@@ -6,7 +6,7 @@ interface RoundedTextBlockProps {
 
 const RoundedTextBlock: React.FC<RoundedTextBlockProps> = ({ text }) => {
   return (
-    <div className="flex text-xs items-center justify-center rounded-full bg-gray-200 mr-2 px-3 py-1">
+    <div className="flex text-xs md:text-base items-center justify-center rounded-full bg-gray-200 mr-2 px-3 py-1 md:px-4 md:py-2 md:mr-4">
       {text}
     </div>
   )
