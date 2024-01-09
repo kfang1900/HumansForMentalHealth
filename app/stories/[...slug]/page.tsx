@@ -91,7 +91,7 @@ export default function StoryPage({ params }: StoryProps) {
           </div>
         )}
         <div className="px-5 max-w-[660px] mx-auto">
-          <div className="flex justify-between items-center pt-2 md:my-4">
+          <div className="flex justify-between items-center pt-2 my-1 md:my-8">
             <div className="py-6 space-y-2 md:space-y-4">
               <h1 className="text-5xl md:text-7xl font-bold">{story.name}</h1>
               {story.illness && (
@@ -100,11 +100,11 @@ export default function StoryPage({ params }: StoryProps) {
                 </p>
               )}
             </div>
-            <button onClick={openEmailForm} className="text-black rounded">
+            <button onClick={openEmailForm} className="text-black rounded pl-2">
               <Image
                 src="/mail.svg"
-                width={52}
-                height={52}
+                width={64}
+                height={64}
                 className="md:w-20 md:h-20"
                 alt="email icon"
               />
